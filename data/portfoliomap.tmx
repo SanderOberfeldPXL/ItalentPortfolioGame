@@ -7,181 +7,181 @@
  <tileset firstgid="835" name="tree objects" tilewidth="72" tileheight="78" tilecount="9" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
-   <image source="C:/Users/sande/Downloads/tilepacks/tree objects/trees2_01.png" width="61" height="78"/>
+   <image source="../graphics/tilepacks/tree objects/trees2_01.png" width="61" height="78"/>
   </tile>
   <tile id="1">
-   <image source="C:/Users/sande/Downloads/tilepacks/tree objects/trees2_02.png" width="53" height="64"/>
+   <image source="../graphics/tilepacks/tree objects/trees2_02.png" width="53" height="64"/>
   </tile>
   <tile id="2">
-   <image source="C:/Users/sande/Downloads/tilepacks/tree objects/trees2_03.png" width="39" height="47"/>
+   <image source="../graphics/tilepacks/tree objects/trees2_03.png" width="39" height="47"/>
   </tile>
   <tile id="3">
-   <image source="C:/Users/sande/Downloads/tilepacks/tree objects/trees2_04.png" width="61" height="73"/>
+   <image source="../graphics/tilepacks/tree objects/trees2_04.png" width="61" height="73"/>
   </tile>
   <tile id="4">
-   <image source="C:/Users/sande/Downloads/tilepacks/tree objects/trees2_05.png" width="51" height="64"/>
+   <image source="../graphics/tilepacks/tree objects/trees2_05.png" width="51" height="64"/>
   </tile>
   <tile id="5">
-   <image source="C:/Users/sande/Downloads/tilepacks/tree objects/trees2_06.png" width="30" height="40"/>
+   <image source="../graphics/tilepacks/tree objects/trees2_06.png" width="30" height="40"/>
   </tile>
   <tile id="6">
-   <image source="C:/Users/sande/Downloads/tilepacks/tree objects/trees2_07.png" width="72" height="77"/>
+   <image source="../graphics/tilepacks/tree objects/trees2_07.png" width="72" height="77"/>
   </tile>
   <tile id="7">
-   <image source="C:/Users/sande/Downloads/tilepacks/tree objects/trees2_08.png" width="57" height="65"/>
+   <image source="../graphics/tilepacks/tree objects/trees2_08.png" width="57" height="65"/>
   </tile>
   <tile id="8">
-   <image source="C:/Users/sande/Downloads/tilepacks/tree objects/trees2_09.png" width="41" height="42"/>
+   <image source="../graphics/tilepacks/tree objects/trees2_09.png" width="41" height="42"/>
   </tile>
  </tileset>
  <tileset firstgid="844" name="Building objects" tilewidth="500" tileheight="500" tilecount="35" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="2">
-   <image source="C:/Users/sande/Downloads/tilepacks/buildings/cart.png" width="169" height="165"/>
+   <image source="../graphics/tilepacks/buildings/cart.png" width="169" height="165"/>
   </tile>
   <tile id="4">
-   <image source="C:/Users/sande/Downloads/tilepacks/buildings/medium house.png" width="133" height="162"/>
+   <image source="../graphics/tilepacks/buildings/medium house.png" width="133" height="162"/>
   </tile>
   <tile id="5">
-   <image source="C:/Users/sande/Downloads/tilepacks/buildings/small house2.png" width="104" height="124"/>
+   <image source="../graphics/tilepacks/buildings/small house2.png" width="104" height="124"/>
   </tile>
   <tile id="6">
-   <image source="C:/Users/sande/Downloads/tilepacks/buildings/vine house.png" width="117" height="118"/>
+   <image source="../graphics/tilepacks/buildings/vine house.png" width="117" height="118"/>
   </tile>
   <tile id="7">
-   <image source="C:/Users/sande/Downloads/tilepacks/buildings/shrine.png" width="500" height="500"/>
+   <image source="../graphics/tilepacks/buildings/shrine.png" width="500" height="500"/>
   </tile>
   <tile id="8">
-   <image source="C:/Users/sande/Downloads/tilepacks/buildings/large house.png" width="134" height="129"/>
+   <image source="../graphics/tilepacks/buildings/large house.png" width="134" height="129"/>
   </tile>
   <tile id="9">
-   <image source="C:/Users/sande/Downloads/tilepacks/buildings/small house.png" width="404" height="484"/>
+   <image source="../graphics/tilepacks/buildings/small house.png" width="404" height="484"/>
   </tile>
   <tile id="10">
-   <image source="C:/Users/sande/Downloads/tilepacks/buildings/work_house.png" width="500" height="500"/>
+   <image source="../graphics/tilepacks/buildings/work_house.png" width="500" height="500"/>
   </tile>
   <tile id="11">
-   <image source="C:/Users/sande/Downloads/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/PNG/Exterior_house_01.png" width="132" height="149"/>
+   <image source="../graphics/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/PNG/Exterior_house_01.png" width="132" height="149"/>
   </tile>
   <tile id="12">
-   <image source="C:/Users/sande/Downloads/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/PNG/Exterior_house_04.png" width="49" height="62"/>
+   <image source="../graphics/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/PNG/Exterior_house_04.png" width="49" height="62"/>
   </tile>
   <tile id="13">
-   <image source="C:/Users/sande/Downloads/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/PNG/Exterior_house_05.png" width="41" height="42"/>
+   <image source="../graphics/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/PNG/Exterior_house_05.png" width="41" height="42"/>
   </tile>
   <tile id="14">
-   <image source="C:/Users/sande/Downloads/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/PNG/Exterior_house_12.png" width="17" height="18"/>
+   <image source="../graphics/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/PNG/Exterior_house_12.png" width="17" height="18"/>
   </tile>
   <tile id="15">
-   <image source="C:/Users/sande/Downloads/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/PNG/Exterior_house_14.png" width="34" height="39"/>
+   <image source="../graphics/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/PNG/Exterior_house_14.png" width="34" height="39"/>
   </tile>
   <tile id="16">
-   <image source="C:/Users/sande/Downloads/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/PNG/Exterior_house_15.png" width="33" height="32"/>
+   <image source="../graphics/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/PNG/Exterior_house_15.png" width="33" height="32"/>
   </tile>
   <tile id="17">
-   <image source="C:/Users/sande/Downloads/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/PNG/Exterior_house_16.png" width="20" height="21"/>
+   <image source="../graphics/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/PNG/Exterior_house_16.png" width="20" height="21"/>
   </tile>
   <tile id="18">
-   <image source="C:/Users/sande/Downloads/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/PNG/Exterior_house_17.png" width="22" height="29"/>
+   <image source="../graphics/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/PNG/Exterior_house_17.png" width="22" height="29"/>
   </tile>
   <tile id="19">
-   <image source="C:/Users/sande/Downloads/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/PNG/Exterior_house_19.png" width="16" height="24"/>
+   <image source="../graphics/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/PNG/Exterior_house_19.png" width="16" height="24"/>
   </tile>
   <tile id="20">
-   <image source="C:/Users/sande/Downloads/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_05.png" width="36" height="58"/>
+   <image source="../graphics/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_05.png" width="36" height="58"/>
   </tile>
   <tile id="21">
-   <image source="C:/Users/sande/Downloads/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_06.png" width="36" height="58"/>
+   <image source="../graphics/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_06.png" width="36" height="58"/>
   </tile>
   <tile id="22">
-   <image source="C:/Users/sande/Downloads/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_07.png" width="36" height="58"/>
+   <image source="../graphics/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_07.png" width="36" height="58"/>
   </tile>
   <tile id="23">
-   <image source="C:/Users/sande/Downloads/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_08.png" width="36" height="58"/>
+   <image source="../graphics/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_08.png" width="36" height="58"/>
   </tile>
   <tile id="24">
-   <image source="C:/Users/sande/Downloads/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_11.png" width="36" height="53"/>
+   <image source="../graphics/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_11.png" width="36" height="53"/>
   </tile>
   <tile id="25">
-   <image source="C:/Users/sande/Downloads/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_12.png" width="36" height="53"/>
+   <image source="../graphics/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_12.png" width="36" height="53"/>
   </tile>
   <tile id="26">
-   <image source="C:/Users/sande/Downloads/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_13.png" width="36" height="53"/>
+   <image source="../graphics/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_13.png" width="36" height="53"/>
   </tile>
   <tile id="27">
-   <image source="C:/Users/sande/Downloads/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_14.png" width="36" height="53"/>
+   <image source="../graphics/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_14.png" width="36" height="53"/>
   </tile>
   <tile id="28">
-   <image source="C:/Users/sande/Downloads/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_15.png" width="36" height="53"/>
+   <image source="../graphics/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_15.png" width="36" height="53"/>
   </tile>
   <tile id="29">
-   <image source="C:/Users/sande/Downloads/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_18.png" width="40" height="43"/>
+   <image source="../graphics/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_18.png" width="40" height="43"/>
   </tile>
   <tile id="30">
-   <image source="C:/Users/sande/Downloads/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_22.png" width="31" height="40"/>
+   <image source="../graphics/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_22.png" width="31" height="40"/>
   </tile>
   <tile id="31">
-   <image source="C:/Users/sande/Downloads/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_23.png" width="52" height="43"/>
+   <image source="../graphics/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_23.png" width="52" height="43"/>
   </tile>
   <tile id="32">
-   <image source="C:/Users/sande/Downloads/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_24.png" width="36" height="50"/>
+   <image source="../graphics/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_24.png" width="36" height="50"/>
   </tile>
   <tile id="33">
-   <image source="C:/Users/sande/Downloads/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_41.png" width="51" height="22"/>
+   <image source="../graphics/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_41.png" width="51" height="22"/>
   </tile>
   <tile id="34">
-   <image source="C:/Users/sande/Downloads/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_42.png" width="29" height="30"/>
+   <image source="../graphics/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_42.png" width="29" height="30"/>
   </tile>
   <tile id="35">
-   <image source="C:/Users/sande/Downloads/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_43.png" width="24" height="24"/>
+   <image source="../graphics/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_43.png" width="24" height="24"/>
   </tile>
   <tile id="36">
-   <image source="C:/Users/sande/Downloads/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_45.png" width="18" height="31"/>
+   <image source="../graphics/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_45.png" width="18" height="31"/>
   </tile>
   <tile id="37">
-   <image source="C:/Users/sande/Downloads/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_46.png" width="18" height="32"/>
+   <image source="../graphics/craftpix-net-692491-free-glassblowers-workshop-top-down-pixel-art-asset/Tiled_files/Interior_objects_46.png" width="18" height="32"/>
   </tile>
  </tileset>
  <tileset firstgid="882" name="Interactables" tilewidth="105" tileheight="119" tilecount="13" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
-   <image source="C:/Users/sande/Downloads/tilepacks/interact objects/paper_01.png" width="56" height="54"/>
+   <image source="../graphics/tilepacks/interact objects/paper_01.png" width="56" height="54"/>
   </tile>
   <tile id="1">
-   <image source="C:/Users/sande/Downloads/tilepacks/interact objects/paper_02.png" width="55" height="52"/>
+   <image source="../graphics/tilepacks/interact objects/paper_02.png" width="55" height="52"/>
   </tile>
   <tile id="2">
-   <image source="C:/Users/sande/Downloads/tilepacks/interact objects/book_01.png" width="76" height="119"/>
+   <image source="../graphics/tilepacks/interact objects/book_01.png" width="76" height="119"/>
   </tile>
   <tile id="3">
-   <image source="C:/Users/sande/Downloads/tilepacks/interact objects/book_02.png" width="79" height="112"/>
+   <image source="../graphics/tilepacks/interact objects/book_02.png" width="79" height="112"/>
   </tile>
   <tile id="4">
-   <image source="C:/Users/sande/Downloads/tilepacks/interact objects/book_03.png" width="57" height="48"/>
+   <image source="../graphics/tilepacks/interact objects/book_03.png" width="57" height="48"/>
   </tile>
   <tile id="5">
-   <image source="C:/Users/sande/Downloads/tilepacks/interact objects/book_04.png" width="67" height="47"/>
+   <image source="../graphics/tilepacks/interact objects/book_04.png" width="67" height="47"/>
   </tile>
   <tile id="6">
-   <image source="C:/Users/sande/Downloads/tilepacks/interact objects/book_05.png" width="59" height="24"/>
+   <image source="../graphics/tilepacks/interact objects/book_05.png" width="59" height="24"/>
   </tile>
   <tile id="7">
-   <image source="C:/Users/sande/Downloads/tilepacks/interact objects/book_06.png" width="64" height="54"/>
+   <image source="../graphics/tilepacks/interact objects/book_06.png" width="64" height="54"/>
   </tile>
   <tile id="8">
-   <image source="C:/Users/sande/Downloads/tilepacks/interact objects/open_book.png" width="105" height="81"/>
+   <image source="../graphics/tilepacks/interact objects/open_book.png" width="105" height="81"/>
   </tile>
   <tile id="9">
-   <image source="C:/Users/sande/Downloads/tilepacks/interact objects/signs_01.png" width="30" height="32"/>
+   <image source="../graphics/tilepacks/interact objects/signs_01.png" width="30" height="32"/>
   </tile>
   <tile id="10">
-   <image source="C:/Users/sande/Downloads/tilepacks/interact objects/signs_02.png" width="30" height="32"/>
+   <image source="../graphics/tilepacks/interact objects/signs_02.png" width="30" height="32"/>
   </tile>
   <tile id="11">
-   <image source="C:/Users/sande/Downloads/tilepacks/interact objects/signs_03.png" width="30" height="32"/>
+   <image source="../graphics/tilepacks/interact objects/signs_03.png" width="30" height="32"/>
   </tile>
   <tile id="12">
-   <image source="C:/Users/sande/Downloads/tilepacks/interact objects/signs_04.png" width="30" height="32"/>
+   <image source="../graphics/tilepacks/interact objects/signs_04.png" width="30" height="32"/>
   </tile>
  </tileset>
  <tileset firstgid="895" source="bushrockobjects.tsx"/>
@@ -189,7 +189,7 @@
  <tileset firstgid="1069" name="npc" tilewidth="22" tileheight="46" tilecount="1" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="3">
-   <image source="C:/Users/sande/Downloads/tim (3) (1) (4) (2).png" width="22" height="46"/>
+   <image source="../graphics/tim (3) (1) (4) (2).png" width="22" height="46"/>
   </tile>
  </tileset>
  <tileset firstgid="1073" source="bushes.tsx"/>

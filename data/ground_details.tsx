@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset version="1.10" tiledversion="1.11.2" name="ground_details" tilewidth="32" tileheight="32" tilecount="90" columns="10">
- <image source="C:/Users/sande/Downloads/tilepacks/ground_details.png" width="336" height="288"/>
+ <image source="../graphics/ground_details.png" width="336" height="288"/>
  <tile id="40" probability="0.2"/>
  <tile id="41" probability="0.2"/>
  <tile id="42" probability="0.2"/>

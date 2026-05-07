@@ -1,5 +1,6 @@
 import pygame
 import json
+from support import resource_path
 from settings import *
 from player import Player
 from overlay import Overlay
@@ -38,10 +39,10 @@ class Level:
         self.setup()
         
     def setup(self):
-        with open('data/dialogue.json', encoding='utf-8') as file:
+        with open(resource_path('data/dialogue.json'), encoding='utf-8') as file:
             dialogue_data = json.load(file)
 
-        tmx_data = load_pygame('./data/portfoliomap.tmx')
+        tmx_data = load_pygame(resource_path('./data/portfoliomap.tmx'))
         WORLD_SCALE = 1.5
         
         map_pixel_width = tmx_data.width * tmx_data.tilewidth * WORLD_SCALE
