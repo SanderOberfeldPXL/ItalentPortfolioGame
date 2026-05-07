@@ -1,6 +1,18 @@
 import pygame, sys
 from settings import *
 from level import Level
+import os
+
+def initialize_working_directory():
+    if getattr(sys, 'frozen', False):
+        base_path = sys._MEIPASS
+    else:
+
+        base_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    
+    os.chdir(base_path)
+
+initialize_working_directory()
 
 class Game:
     def __init__(self): 
