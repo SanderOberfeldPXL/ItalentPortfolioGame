@@ -3,7 +3,7 @@ import json
 from settings import *
 from player import Player
 from overlay import Overlay
-from sprites import Generic, Obstacle, Interactable
+from sprites import Generic, Obstacle, Interactable, Collectible
 from pytmx.util_pygame import load_pygame
 
 class Level:
@@ -19,13 +19,20 @@ class Level:
         self.dialogue_active = False
         self.dialogue_pages = []
         self.current_page = 0
+        self.can_walk_away = True
         
         self.menu_active = False
+        
+        self.interactable_sprites = pygame.sprite.Group() 
+        self.collectible_sprites = pygame.sprite.Group()
+        
+        self.collected_count = 0 
+        self.total_collectibles = 0
         
         self.setup()
         
     def setup(self):
-        with open('data/dialogue.json') as file:
+        with open('data/dialogue.json', encoding='utf-8') as file:
             dialogue_data = json.load(file)
 
         tmx_data = load_pygame('./data/portfoliomap.tmx')
@@ -69,7 +76,7 @@ class Level:
                     z = LAYERS['main']
                 )
                 
-        object_layers = ['buildings', 'object_trees', 'interaction']
+        object_layers = ['buildings', 'object_trees', 'interaction', 'collectibles']
         
         for layer in object_layers:
             tmx_layer = tmx_data.get_layer_by_name(layer)
@@ -96,6 +103,19 @@ class Level:
                             text = text,
                             surface = surface
                         )
+                        
+                    elif layer == 'collectibles':
+                        groups = [self.all_sprites, self.collectible_sprites] 
+                        text = dialogue_data.get(obj.name, "Found an item!")
+                        Collectible(
+                            pos = (obj.x * WORLD_SCALE, obj.y * WORLD_SCALE),
+                            size = (target_w, target_h),
+                            groups = groups,
+                            name = obj.name,
+                            text = text,
+                            surface = surface
+                        )
+                        
                     else:
                         Generic(
                             pos = (obj.x * WORLD_SCALE, obj.y * WORLD_SCALE),
@@ -113,6 +133,19 @@ class Level:
                         name = obj.name,
                         text = text
                     )
+                    
+                elif layer == 'collectibles':
+                    text = dialogue_data.get(obj.name, "Found an item!")
+                    Collectible(
+                        pos = (obj.x * WORLD_SCALE, obj.y * WORLD_SCALE), 
+                        size = (obj.width * WORLD_SCALE, obj.height * WORLD_SCALE), 
+                        groups = [self.collectible_sprites],
+                        name = obj.name,
+                        text = text
+                    )
+                
+                        
+                
 
         for layer in ['collision']:
             tmx_layer = tmx_data.get_layer_by_name(layer)
@@ -128,11 +161,24 @@ class Level:
             self.all_sprites, 
             self.collision_sprites, 
             self.interactable_sprites, 
-            self.toggle_dialogue
+            self.toggle_dialogue,
+            self.collectible_sprites,
+            self.collect_item
         )
         
+        self.total_collectibles = len(self.collectible_sprites)
         start_text = dialogue_data.get("game_start", "Welcome! Press Space to start.")
-        self.toggle_dialogue(start_text)
+        self.toggle_dialogue(start_text, can_walk_away=False)
+        
+    
+    def collect_item(self, sprite):
+        self.collected_count += 1
+        
+        popup_text = f"{sprite.text}\\s(Documenten gevonden: {self.collected_count}/{self.total_collectibles})"
+        self.toggle_dialogue(popup_text, can_walk_away=True)
+        
+        sprite.kill()
+    
         
     def toggle_menu(self):
         self.menu_active = not self.menu_active
@@ -163,15 +209,17 @@ class Level:
             self.display_surface.blit(text_surf, text_rect)
         
         
-    def toggle_dialogue(self, text=None):
+    def toggle_dialogue(self, text=None, can_walk_away=True):
         if self.dialogue_active:
             self.dialogue_active = False
             self.dialogue_pages = []
             self.current_page = 0
         elif text:
             self.dialogue_active = True
+            self.can_walk_away = can_walk_away
             self.create_dialogue_pages(text)
             self.current_page = 0
+
 
     def create_dialogue_pages(self, raw_text):
         box_width = int(SCREEN_WIDTH * 0.6)
@@ -179,32 +227,41 @@ class Level:
         max_text_width = box_width - (padding * 2)
         max_lines_per_page = 6
 
-        all_lines = []
-        paragraphs = raw_text.split('\n')
-        
-        for paragraph in paragraphs:
-            if paragraph == "":
-                all_lines.append("")
-                continue
-                
-            words = paragraph.split(' ')
-            current_line = []
-            
-            for word in words:
-                test_line = ' '.join(current_line + [word])
-                if self.font.size(test_line)[0] < max_text_width:
-                    current_line.append(word)
-                else:
-                    all_lines.append(' '.join(current_line))
-                    current_line = [word]
-            
-            if current_line:
-                all_lines.append(' '.join(current_line))
-
         self.dialogue_pages = []
-        for i in range(0, len(all_lines), max_lines_per_page):
-            self.dialogue_pages.append(all_lines[i:i + max_lines_per_page])
+        
+
+        forced_pages = raw_text.split('\\s')
+        
+        for raw_page in forced_pages:
+            all_lines = []
+            paragraphs = raw_page.split('\n')
             
+            for paragraph in paragraphs:
+                if paragraph == "":
+                    all_lines.append("")
+                    continue
+                    
+                words = paragraph.split(' ')
+                current_line = []
+                
+                for word in words:
+                    test_line = ' '.join(current_line + [word])
+                    if self.font.size(test_line)[0] < max_text_width:
+                        current_line.append(word)
+                    else:
+                        all_lines.append(' '.join(current_line))
+                        current_line = [word]
+                
+                if current_line:
+                    all_lines.append(' '.join(current_line))
+
+
+            if not all_lines:
+                all_lines = [""]
+
+            for i in range(0, len(all_lines), max_lines_per_page):
+                self.dialogue_pages.append(all_lines[i:i + max_lines_per_page])
+                       
 
     def draw_dialogue(self):
         if not self.dialogue_active or not self.dialogue_pages:
@@ -282,8 +339,9 @@ class Level:
                 self.current_page += 1
             else:
                 self.toggle_dialogue()
-            
-        elif keys[pygame.K_LEFT] or keys[pygame.K_RIGHT] or keys[pygame.K_UP] or keys[pygame.K_DOWN]:
+                
+
+        elif (keys[pygame.K_LEFT] or keys[pygame.K_RIGHT] or keys[pygame.K_UP] or keys[pygame.K_DOWN]) and self.can_walk_away:
             self.toggle_dialogue()
         
         

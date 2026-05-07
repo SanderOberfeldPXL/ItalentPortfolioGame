@@ -5,11 +5,13 @@ from timer import Timer
 
 class Player(pygame.sprite.Sprite):
     
-    def __init__(self, pos, group, collision_sprites, interactable_sprites, interaction_callback):
+    def __init__(self, pos, group, collision_sprites, interactable_sprites, interaction_callback, collectible_sprites, collect_callback):
         super().__init__(group)
         self.collision_sprites = collision_sprites
         self.interactable_sprites = interactable_sprites
         self.interaction_callback = interaction_callback
+        self.collectible_sprites = collectible_sprites
+        self.collect_callback = collect_callback
         
         self.import_assets()
         self.status = 'down_idle'
@@ -49,10 +51,8 @@ class Player(pygame.sprite.Sprite):
 
     def check_interaction(self):
         facing_vector = self.get_facing_vector()
-        
         origin_x = self.hitbox.centerx
         origin_y = self.hitbox.centery
-
         interaction_distance = 40 
         
         target_x = origin_x + (facing_vector.x * interaction_distance)
@@ -63,6 +63,11 @@ class Player(pygame.sprite.Sprite):
             if interaction_rect.colliderect(sprite.rect):
                 if hasattr(sprite, 'text'):
                     self.interaction_callback(sprite.text)
+                return 
+
+        for sprite in self.collectible_sprites.sprites():
+            if interaction_rect.colliderect(sprite.rect):
+                self.collect_callback(sprite)
                 return
             
 
