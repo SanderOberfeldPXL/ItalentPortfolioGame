@@ -2,7 +2,6 @@ import pygame, sys
 from settings import *
 from level import Level
 
-
 class Game:
     def __init__(self): 
         pygame.init()
@@ -17,6 +16,13 @@ class Game:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
+                    
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                        self.level.toggle_menu()
+                    if event.key == pygame.K_RETURN and self.level.menu_active:
+                        pygame.quit()
+                        sys.exit()
 
             dt = self.clock.tick() / 1000
             self.level.run(dt)

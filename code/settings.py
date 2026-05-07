@@ -3,11 +3,6 @@ SCREEN_HEIGHT = 720
 
 
 
-OVERLAY_POS = {
-    'equipment': (40, SCREEN_HEIGHT - 15)
-}
-
-
 LAYERS = {
     # below player  
     'ground': 0,
