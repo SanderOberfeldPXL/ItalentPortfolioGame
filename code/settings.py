@@ -1,7 +1,8 @@
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720
 
-
+# Audio
+MUSIC_PATH = 'audio/background_music.mp3'
 
 LAYERS = {
     # below player  

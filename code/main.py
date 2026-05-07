@@ -8,7 +8,15 @@ class Game:
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         pygame.display.set_caption('Portfolio')
         self.clock = pygame.time.Clock()
+        self.setup_audio()
         self.level = Level()
+
+
+    def setup_audio(self):
+        pygame.mixer.music.load(MUSIC_PATH)
+        pygame.mixer.music.set_volume(0.5)
+        pygame.mixer.music.play(loops=-1)
+
 
     def run(self):
         while True:

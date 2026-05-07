@@ -29,6 +29,12 @@ class Level:
         self.collected_count = 0 
         self.total_collectibles = 0
         
+        self.volume = 0.5
+        pygame.mixer.music.set_volume(self.volume)
+        
+        self.all_items_collected = False
+        self.game_finished = False
+        
         self.setup()
         
     def setup(self):
@@ -170,12 +176,58 @@ class Level:
         start_text = dialogue_data.get("game_start", "Welcome! Press Space to start.")
         self.toggle_dialogue(start_text, can_walk_away=False)
         
+    def change_volume(self, amount):
+        self.volume = max(0.0, min(1.0, self.volume + amount))
+        pygame.mixer.music.set_volume(self.volume)
+    
+    
+    def check_completion(self):
+        if self.collected_count >= self.total_collectibles:
+            self.game_finished = True
+    
+    
+    def draw_end_screen(self):
+        """Tekent een statische popup die het einde van de game markeert."""
+        # Overlay
+        overlay = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT))
+        overlay.set_alpha(220)
+        overlay.fill('black')
+        self.display_surface.blit(overlay, (0, 0))
+
+        # Tekst box
+        box_rect = pygame.Rect(SCREEN_WIDTH // 2 - 300, SCREEN_HEIGHT // 2 - 100, 600, 200)
+        pygame.draw.rect(self.display_surface, 'white', box_rect, border_radius=12)
+        pygame.draw.rect(self.display_surface, 'blue', box_rect, width=4, border_radius=12)
+
+        # Content
+        thanks_surf = self.font.render("Bedankt voor het spelen van mijn portfolio!", True, 'black')
+        thanks_rect = thanks_surf.get_rect(center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 - 20))
+        
+        exit_surf = self.font.render("Druk op SPATIE om de game af te sluiten", True, 'gray40')
+        exit_rect = exit_surf.get_rect(center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 40))
+
+        self.display_surface.blit(thanks_surf, thanks_rect)
+        self.display_surface.blit(exit_surf, exit_rect)
+
+
+    def check_end_input(self):
+        keys = pygame.key.get_pressed()
+        self.player.timers['interaction_cooldown'].update()
+        
+        if keys[pygame.K_SPACE] and not self.player.timers['interaction_cooldown'].active:
+            pygame.quit()
+            import sys
+            sys.exit()
+    
     
     def collect_item(self, sprite):
         self.collected_count += 1
         
+        if self.collected_count >= self.total_collectibles:
+            self.all_items_collected = True
+        
         popup_text = f"{sprite.text}\\s(Documenten gevonden: {self.collected_count}/{self.total_collectibles})"
-        self.toggle_dialogue(popup_text, can_walk_away=True)
+        self.toggle_dialogue(popup_text, can_walk_away=False)
         
         sprite.kill()
     
@@ -184,6 +236,7 @@ class Level:
         self.menu_active = not self.menu_active
         if self.menu_active and self.dialogue_active:
             self.dialogue_active = False
+
 
     def draw_menu(self):
         overlay = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -194,6 +247,15 @@ class Level:
         title_surf = pygame.font.Font(None, 60).render("PAUSE MENU", True, 'white')
         title_rect = title_surf.get_rect(center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 - 100))
         self.display_surface.blit(title_surf, title_rect)
+        
+        volume_text = f"Music Volume: {int(self.volume * 100)}%"
+        vol_surf = self.font.render(volume_text, True, 'yellow')
+        vol_rect = vol_surf.get_rect(center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 - 50))
+        vol_adjust_text = "Use Left/Right Arrows to Adjust"
+        adjust_surf = self.font.render(vol_adjust_text, True, 'gray70')
+        adjust_rect = adjust_surf.get_rect(center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 - 70))
+        self.display_surface.blit(adjust_surf, adjust_rect)
+        self.display_surface.blit(vol_surf, vol_rect)
 
         controls_text = [
             "Arrow Keys : Move",
@@ -209,11 +271,31 @@ class Level:
             self.display_surface.blit(text_surf, text_rect)
         
         
+    def check_menu_input(self):
+        """Verwerkt input specifiek voor het menu."""
+        keys = pygame.key.get_pressed()
+        
+        if not self.player.timers['interaction_cooldown'].active:
+            if keys[pygame.K_LEFT]:
+                self.change_volume(-0.1)
+                self.player.timers['interaction_cooldown'].activate()
+            if keys[pygame.K_RIGHT]:
+                self.change_volume(0.1)
+                self.player.timers['interaction_cooldown'].activate()
+        
+        
     def toggle_dialogue(self, text=None, can_walk_away=True):
+        """Breid de bestaande functie uit om te reageren op het sluiten."""
         if self.dialogue_active:
+            # Dialoog wordt nu gesloten
             self.dialogue_active = False
             self.dialogue_pages = []
             self.current_page = 0
+            
+            self.player.timers['interaction_cooldown'].activate()
+
+            if self.all_items_collected:
+                self.game_finished = True
         elif text:
             self.dialogue_active = True
             self.can_walk_away = can_walk_away
@@ -318,8 +400,15 @@ class Level:
     def run(self, dt):
         self.display_surface.fill('black')
         self.all_sprites.custom_draw(self.player)
-        
+
+        if self.game_finished:
+            self.draw_end_screen()
+            self.check_end_input()
+            return 
+
         if self.menu_active:
+            self.check_menu_input()
+            self.player.timers['interaction_cooldown'].update()
             self.draw_menu()
         elif self.dialogue_active:
             self.check_dialogue_input()
